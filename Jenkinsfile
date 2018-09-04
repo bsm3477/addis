@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    dockerfile {
+      filename 'Dockerfile'
+    }
+
+  }
   stages {
     stage('Test') {
       agent any
@@ -35,5 +40,8 @@ pipeline {
 
       }
     }
+  }
+  environment {
+    env = 'development'
   }
 }
